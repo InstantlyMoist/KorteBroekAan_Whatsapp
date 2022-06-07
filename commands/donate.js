@@ -9,7 +9,7 @@ exports.run = async (client, msg, args) => {
         msg.reply("Quote een bericht van iemand die je wilt doneren (Het is geen discord, anders is het vet moeilijk dankjewel)");
         return;
     }
-    let quotedProfile = client.getProfile(quotedMessage.author);
+    let quotedProfile = profiles.getProfile(quotedMessage.author);
     let profile = profiles.getProfile(msg.author);
 
     let amount = parseInt(args[0]);
