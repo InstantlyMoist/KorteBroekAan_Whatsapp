@@ -3,7 +3,7 @@ const profiles = require("../profiles.js")
 exports.name = "donate";
 exports.description = "Geef broeken weg";
 
-exports.run = (client, msg, args) => {
+exports.run = async (client, msg, args) => {
     let quotedMessage = await msg.getQuotedMessage();
     if (quotedMessage == null || quotedMessage == undefined) {
         msg.reply("Quote een bericht van iemand die je wilt doneren (Het is geen discord, anders is het vet moeilijk dankjewel)");
