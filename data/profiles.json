@@ -1,0 +1,44 @@
+{
+  "120363040243671335@g.us": {
+    "coins": 660,
+    "daily_reward_after": 1654693559083,
+    "cooldown": 1654607840022,
+    "combo": 6
+  },
+  "31642133008@c.us": {
+    "coins": 50,
+    "daily_reward_after": 1654607853983,
+    "cooldown": 1654610630301,
+    "combo": 1
+  },
+  "31642832106@c.us": {
+    "coins": 48,
+    "daily_reward_after": 1654608094634,
+    "cooldown": 1654608135757,
+    "combo": 1
+  },
+  "31628134349@c.us": {
+    "coins": 50,
+    "daily_reward_after": 1654608148651,
+    "cooldown": 1654608174266,
+    "combo": 1
+  },
+  "undefined": {
+    "coins": 50,
+    "daily_reward_after": 1654609701218,
+    "cooldown": 1654610846403,
+    "combo": 1
+  },
+  "31612312210@c.us": {
+    "coins": 70,
+    "daily_reward_after": 1654610530273,
+    "cooldown": 1654610540274,
+    "combo": 2
+  },
+  "31643517007@c.us": {
+    "coins": 40,
+    "daily_reward_after": 1654610604920,
+    "cooldown": 1654610614921,
+    "combo": 1
+  }
+}
