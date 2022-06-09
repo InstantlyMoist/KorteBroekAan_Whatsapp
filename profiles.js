@@ -1,5 +1,11 @@
-const profiles = require("./data/profiles.json");
 const fs = require('fs');
+
+if (!fs.existsSync("./data/profiles.json")) {
+    fs.writeFileSync("./data/profiles.json", "{}");
+}
+
+const profiles = require("./data/profiles.json");
+
 
 exports.save = () => {
     fs.writeFile("./data/profiles.json", JSON.stringify(profiles, null, 2), (err) => {

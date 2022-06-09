@@ -4,7 +4,7 @@ exports.name = "daily";
 exports.description = "Claim je daily reward";
 
 exports.run = (client, msg, args) => {
-    const response = profiles.claimDaily(msg.from);
+    const response = profiles.claimDaily(msg.author);
     if (response === -1) {
         msg.reply("Je kunt je daily reward niet claimen op dit moment");
         return;
