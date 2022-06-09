@@ -18,8 +18,8 @@ exports.run = (client, msg, args) => {
         msg.reply("Je hebt niet genoeg korte broeken om dit te doen");
         return;
     }
-    if (bet < 0) {
-        msg.reply("Je kan geen negatieve waarde opgeven");
+    if (bet <= 0) {
+        msg.reply("Voer een geldig getal in");
         return;
     }
     let result = Math.random() < 0.5 ? "heads" : "tails";
