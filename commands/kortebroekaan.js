@@ -42,7 +42,7 @@ exports.run = async (client, msg, args) =>  {
     if (response.rainChance == undefined || response.temperature == undefined) {
         finalString += `De locatie ${response.location} konden we helaas niet inladen vandaag...\n\n`;
     } else {
-        finalString += `In ${response.location} is er een regenkans van ${response.rainChance}% met een temperatuur van ${response.temperature}°C. Hier kan je vandaag ${response.shortPants ? "een" : "geen"} korte broek aan!\n\n`;
+        finalString += `In ${response.location} is er een regenkans van ${response.rainChance}% met een temperatuur van ${response.temperature}°C. Hier kan je vandaag ${response.canWearShortPants ? "een" : "geen"} korte broek aan!\n\n`;
     }
 
     let end = new Date().getTime() - now;
