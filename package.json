@@ -9,12 +9,12 @@
   "author": "Kyllian Warmerdam",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.27.2",
-    "canvas": "^2.9.1",
-    "dotenv": "^16.0.1",
-    "enmap": "^5.9.0",
+    "axios": "^1.4.0",
+    "canvas": "^2.11.2",
+    "dotenv": "^16.0.3",
+    "enmap": "^5.9.5",
     "qrcode-terminal": "^0.12.0",
-    "shortpants": "^1.5.0",
-    "whatsapp-web.js": "^1.16.6"
+    "shortpants": "^1.6.0",
+    "whatsapp-web.js": "^1.19.5"
   }
 }

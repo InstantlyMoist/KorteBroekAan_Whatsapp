@@ -10,10 +10,10 @@ exports.run = async (client, msg, args) => {
         return;
     }
     let quotedProfile = profiles.getProfile(quotedMessage.author);
-    let profile = profiles.getProfile(msg.author);
+    let profile = profiles.getProfile(msg.author ?? msg.from);
 
     let amount = parseInt(args[0]);
-    if (quotedMessage.author === msg.author) {
+    if (quotedMessage.author === msg.author || quotedMessage.author == msg.from) {
         msg.reply("Je kan je eigen profiel niet doneren");
         return;
     }
@@ -31,7 +31,7 @@ exports.run = async (client, msg, args) => {
     }
 
     profiles.addCoins(quotedMessage.author, amount);
-    profiles.addCoins(msg.author, -amount);
+    profiles.addCoins(msg.author ?? msg.from, -amount);
 
     msg.reply(`OK, @${quotedMessage.author} heeft nu ${quotedProfile.coins} korte broeken\nJe hebt nog ${profile.coins} korte broeken over`);
 };

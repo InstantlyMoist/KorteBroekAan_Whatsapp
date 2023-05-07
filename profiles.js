@@ -25,19 +25,19 @@ exports.createProfile = (number) => {
 }
 
 exports.getProfile = (number) => {
+    number = number.split("@")[0];
     if (!profiles[number]) this.createProfile(number);
     return profiles[number];
 }
 
 exports.addCoins = (number, amount) => {
-    if (!profiles[number]) this.createProfile(number);
-    profiles[number].coins += amount;
+    let profile = this.getProfile(number);
+    profile.coins += amount;
     this.save();
 }
 
 exports.claimDaily = (number) => {
-    if (!profiles[number]) this.createProfile(number);
-    const profile = profiles[number];
+    let profile = this.getProfile(number);
     if (profile.daily_reward_after > Date.now()) return -1;
     profile.coins += 50;
     profile.daily_reward_after = Date.now() + 86400000;
@@ -46,15 +46,15 @@ exports.claimDaily = (number) => {
 }
 
 exports.updateCooldown = (number) => {
-    if (!profiles[number]) this.createProfile(number);
-    profiles[number].cooldown = Date.now() + 10000;
+    let profile = this.getProfile(number);
+    profile.cooldown = Date.now() + 10000;
     this.save();
 }
 
 exports.updateCombo = (number, won) => {
-    if (!profiles[number]) this.createProfile(number);
-    if (won) profiles[number].combo++;
-    else profiles[number].combo = 1;
+    let profile = this.getProfile(number);
+    if (won) profile.combo++;
+    else profile.combo = 1;
     this.save();
-    return profiles[number].combo;
+    return profile.combo;
 }

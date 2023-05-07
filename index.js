@@ -15,6 +15,8 @@ const whatsappClient = new Client({
 whatsappClient.commands = new Enmap();
 whatsappClient.messagemedia = MessageMedia;
 
+console.log("🤖 Loading whatsapp bot...");
+
 whatsappClient.initialize();
 
 fs.readdir(__dirname + "/commands", (err, files) => {
@@ -23,18 +25,18 @@ fs.readdir(__dirname + "/commands", (err, files) => {
         if (!file.endsWith(".js")) return;
         let props = require(__dirname + "/commands/" + file);
         let commandName = file.split(".")[0];
-        console.log(`Attempting to load command ${commandName}`);
+        console.log(`🫡 Attempting to load command: ${commandName}`);
         whatsappClient.commands.set(commandName, props);
     });
 });
 
 whatsappClient.on('qr', (qr) => {
-    console.log('QR RECEIVED', qr);
+    console.log('🤳 Please scan the following QR code: ', qr);
     qrcode.generate(qr, { small: true });
 });
 
 whatsappClient.on('authenticated', () => {
-    console.log('Client is authenticated!');
+    console.log('✅ Client is authenticated!');
 });
 
 whatsappClient.on('message', async msg => {
@@ -43,12 +45,12 @@ whatsappClient.on('message', async msg => {
     const command = args.shift().toLowerCase();
     const cmd = whatsappClient.commands.get(command);
     if (!cmd) return;
-    if (profiles.getProfile(msg.author).cooldown > Date.now()) {
-        const cooldown = profiles.getProfile(msg.author).cooldown - Date.now();
+    if (profiles.getProfile(msg.author ?? msg.from).cooldown > Date.now()) {
+        const cooldown = profiles.getProfile(msg.author ?? msg.from).cooldown - Date.now();
         msg.reply(`Je moet nog ${cooldown/1000}s wachten om je commando opnieuw te kunnen uitvoeren`);
         return;
     }
-    profiles.updateCooldown(msg.author);
+    profiles.updateCooldown(msg.author ?? msg.from);
     cmd.run(whatsappClient, msg, args);
 });
 

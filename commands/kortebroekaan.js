@@ -49,7 +49,7 @@ exports.run = async (client, msg, args) =>  {
 
     finalString += "\nDeze informatie is opgehaald in " + end + "ms";
 
-    finalString += "\nDeel dit bericht met je vrienden en join onze groepsapp: https://chat.whatsapp.com/EqTygiIr1iQ5sEzA1rh7nl"
+    finalString += "\nDeel dit bericht met je vrienden!"
 
     client.sendMessage(msg.from, mm, { caption: finalString });
 }
